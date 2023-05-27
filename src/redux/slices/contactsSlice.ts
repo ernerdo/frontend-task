@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Contact } from "../../models/contact.model";
 
-interface ContactsState {
+export interface ContactsState {
   contacts: Contact[];
   loading: boolean;
   error: string | null;
