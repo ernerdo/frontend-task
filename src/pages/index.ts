@@ -1,2 +1,2 @@
-export * from "./Chart-Map";
-export * from "./Contact";
+export * from './Chart-Map'
+export * from './Contact'

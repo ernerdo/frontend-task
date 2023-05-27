@@ -1,4 +1,4 @@
-import { DefaultLayout } from "../../layout";
+import { DefaultLayout } from '../../layout'
 
 export const ChartMap = () => {
   return (
@@ -7,5 +7,5 @@ export const ChartMap = () => {
         <h1>ChartMap</h1>
       </div>
     </DefaultLayout>
-  );
-};
+  )
+}

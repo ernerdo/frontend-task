@@ -1,2 +1,2 @@
-export * from "./DefaultLayout";
-export * from "./Sidebar";
+export * from './DefaultLayout'
+export * from './Sidebar'

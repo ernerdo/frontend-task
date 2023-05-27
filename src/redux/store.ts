@@ -3,7 +3,7 @@ import {
   combineReducers,
   configureStore,
   Reducer,
-} from "@reduxjs/toolkit";
+} from '@reduxjs/toolkit'
 
 import {
   FLUSH,
@@ -14,25 +14,25 @@ import {
   PURGE,
   REGISTER,
   REHYDRATE,
-} from "redux-persist";
+} from 'redux-persist'
 
-import storage from "redux-persist/lib/storage";
-import { contactsReducer, ContactsState } from "./slices/contactsSlice";
+import storage from 'redux-persist/lib/storage'
+import { contactsReducer, ContactsState } from './slices/contactsSlice'
 
 interface RootState {
-  contacts: ContactsState;
+  contacts: ContactsState
 }
 
 const rootReducer: Reducer<RootState, Action<string>> = combineReducers({
   contacts: contactsReducer,
-});
+})
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
-};
+}
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -42,5 +42,5 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-});
-export const persistor = persistStore(store);
+})
+export const persistor = persistStore(store)

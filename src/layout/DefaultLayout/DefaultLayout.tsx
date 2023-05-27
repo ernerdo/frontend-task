@@ -1,8 +1,8 @@
-import { Sidebar } from "../Sidebar";
+import { Sidebar } from '../Sidebar'
 
 type Props = {
-  children?: React.ReactNode;
-};
+  children?: React.ReactNode
+}
 
 export const DefaultLayout = ({ children }: Props) => {
   return (
@@ -12,5 +12,5 @@ export const DefaultLayout = ({ children }: Props) => {
       </div>
       <div className="col-span-4 bg-white p-4">{children}</div>
     </div>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import { DefaultLayout } from "../../layout";
+import { DefaultLayout } from '../../layout'
 
 export const Contacts = () => {
   return (
@@ -7,5 +7,5 @@ export const Contacts = () => {
         <h1>Contacts</h1>
       </div>
     </DefaultLayout>
-  );
-};
+  )
+}
