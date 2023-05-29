@@ -1,7 +1,7 @@
 export const NotContact = () => {
   return (
     <>
-      <div className="flex flex-row place-items-center justify-center gap-4 border-2 border-black mx-10 w-1/3">
+      <div className="flex flex-row place-items-center justify-center gap-4 border-2 p-1 border-black w-fit md:w-1/2 lg:w-1/3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -17,9 +17,15 @@ export const NotContact = () => {
           <line x1="9" y1="9" x2="15" y2="15" />
         </svg>
         <div className="flex flex-col gap-4 justify-around ">
-          <p>No contact Found</p>
-          <p>Please add contact form</p>
-          <p>Create Contact button</p>
+          <p className="text-sm md:text-lg whitespace-nowrap">
+            No contact Found
+          </p>
+          <p className="text-sm md:text-lg whitespace-nowrap">
+            Please add contact form
+          </p>
+          <p className="text-sm md:text-lg whitespace-nowrap">
+            Create Contact button
+          </p>
         </div>
       </div>
     </>
