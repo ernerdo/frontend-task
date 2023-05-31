@@ -1,6 +1,10 @@
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom'
-import { ChartMap, Contacts } from '../pages'
-import { ContactCreate } from '../pages/ContactCreate'
+import {
+  Routes,
+  Route,
+  BrowserRouter as Router,
+  Navigate,
+} from 'react-router-dom'
+import { ChartMap, ContactEdit, Contacts, ContactCreate } from '../pages'
 
 interface RoutesProps {
   children?: React.ReactNode
@@ -12,7 +16,9 @@ export const AppRouter = ({ children }: RoutesProps) => {
       <Routes>
         <Route path="/" element={<Contacts />} />
         <Route path="/contact/create" element={<ContactCreate />} />
+        <Route path="/contact/edit/:id" element={<ContactEdit />} />
         <Route path="/chart-map" element={<ChartMap />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   )
