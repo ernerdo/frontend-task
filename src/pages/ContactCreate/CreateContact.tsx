@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DefaultLayout } from '../../layout'
 import { useDispatch } from 'react-redux'
 import { addContact } from '../../redux/slices/contactsSlice'
@@ -8,20 +8,31 @@ export const ContactCreate = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [status, setStatus] = useState(true)
+  const [userData, setUserData] = useState({
+    firstName: '',
+    lastName: '',
+    status: true,
+  })
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     dispatch(
       addContact({
         id: Math.floor(Math.random() * 1000),
-        firstName,
-        lastName,
-        status,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        status: userData.status,
       })
     )
     navigate('/')
+  }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value, type } = event.target
+    const newValue =
+      type === 'radio' ? (value === 'active' ? true : false) : value
+    setUserData((prevUserData) => ({
+      ...prevUserData,
+      [id]: newValue,
+    }))
   }
   return (
     <DefaultLayout>
@@ -40,8 +51,7 @@ export const ContactCreate = () => {
                 type="text"
                 id="firstName"
                 className=" border rounded w-full py-2 px-3 text-gray-700 leading-tight "
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className="mb-4 md:flex items-center">
@@ -55,8 +65,7 @@ export const ContactCreate = () => {
                 type="text"
                 id="lastName"
                 className=" border rounded w-full py-2 px-3 text-gray-700 leading-tight "
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className="flex place-items-center mb-4 ">
@@ -67,20 +76,22 @@ export const ContactCreate = () => {
                 <label className="items-center">
                   <input
                     type="radio"
+                    id="status"
                     className="form-radio text-blue-500"
                     value="active"
-                    checked={status === true}
-                    onChange={() => setStatus(true)}
+                    onChange={handleChange}
+                    checked={userData.status === true}
                   />
                   <span className="ml-2">Active</span>
                 </label>
                 <label className="items-center">
                   <input
                     type="radio"
+                    id="status"
                     className="form-radio text-red-500"
                     value="inactive"
-                    checked={status === false}
-                    onChange={() => setStatus(false)}
+                    onChange={handleChange}
+                    checked={userData.status === false}
                   />
                   <span className="ml-2">Inactive</span>
                 </label>
