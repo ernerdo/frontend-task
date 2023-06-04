@@ -1,8 +1,8 @@
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { DefaultLayout } from '../../layout'
-import { useEffect, useState } from 'react'
-import { editContact, ContactsState } from '../../redux/slices/contactsSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { ContactsState, editContact } from '../../redux/slices/contactsSlice'
 
 interface RootState {
   contacts: ContactsState

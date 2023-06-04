@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import { DefaultLayout } from '../../layout'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addContact } from '../../redux/slices/contactsSlice'
 import { useNavigate } from 'react-router-dom'
+import { DefaultLayout } from '../../layout'
+import { addContact } from '../../redux/slices/contactsSlice'
 
 export const ContactCreate = () => {
   const dispatch = useDispatch()
